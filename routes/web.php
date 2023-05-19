@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\DashboardController;
-use App\Http\Controllers\Backend\DataSiswaController;
+use App\Http\Controllers\Backend\DataTiketController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,4 +20,4 @@ Route::get('/', function () {
 });
 
 Route::resource('/dashboard', DashboardController::class);
-Route::resource('/data_siswa', DataSiswaController::class);
+Route::resource('/data_tiket', DataTiketController::class);

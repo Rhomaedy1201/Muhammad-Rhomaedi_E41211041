@@ -8,13 +8,11 @@
 <main id="main" class="main">
 
   <div class="pagetitle">
-    <h1>Pendidikan</h1>
+    <h1>Data Tiket</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ url('dashboard') }}">Riwayat</a></li>
-        <li class="breadcrumb-item"><a href="">Pengalaman Kerja</a></li>
-        <li class="breadcrumb-item active">Pendidikan</li>
-        <li class="breadcrumb-item active">Data Siswa</li>
+        <li class="breadcrumb-item"><a href="">Data Tiket</a></li>
       </ol>
     </nav>
   </div><!-- End Page Title -->
@@ -28,7 +26,7 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Pendidikan</h5>
+              <h5 class="card-title">Data Tiket</h5>
           
               <!-- Horizontal Form -->
               <form>
@@ -40,7 +38,7 @@
                   @endif
                 </div>
                 <div class="text-start">
-                  <a href="{{ route('data_siswa.create') }}" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Tambah</a>
+                  <a href="{{ route('data_tiket.create') }}" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Tambah</a>
                 </div>
               </form>
               <br>
@@ -51,27 +49,27 @@
                 <tbody>
                   <tr>
                     <th><i class="icon_bag"></i>No</th>
-                    <th><i class="icon_bag"></i>Nama</th>
-                    <th><i class="icon_document"></i>Tingkatan</th>
-                    <th><i class="icon_calender"></i>Tahun Masuk</th>
-                    <th><i class="icon_calender"></i>Tahun Selesai</th>
+                    <th><i class="icon_bag"></i>Nama Tiket</th>
+                    <th><i class="icon_document"></i>Lokasi</th>
+                    <th><i class="icon_calender"></i>Harga</th>
+                    <th><i class="icon_calender"></i>Jumlah Tiket</th>
                     <th><i class="icon_cogs"></i>Action</th>
                   </tr>
-                  {{-- <?php $index = 0 ?> --}}
-                  {{-- @foreach ($pendidikan as $item) --}}
-                  {{-- <?php $index++ ?> --}}
+                  <?php $index = 0 ?>
+                  @foreach ($data_tiket as $item)
+                  <?php $index++ ?>
                   <tr>
-                    <td>No</td>
-                    <td>Nama</td>
-                    <td>Tingkatan</td>
-                    <td>tahun_masuk</td>
-                    <td>tahun_keluar</td>
+                    <td>{{ $index }}</td>
+                    <td>{{ $item->nama_tiket }}</td>
+                    <td>{{ $item->lokasi }}</td>
+                    <td>{{ $item->harga }}</td>
+                    <td>{{ $item->jumlah_tiket }}</td>
                     <td>
                       <div class="btn-group">
-                        <form action="" method="POST">
-                        {{-- <form action="{{ route('pendidikan.destroy', $item->id) }}" method="POST"> --}}
-                          <a class="btn btn-warning" href="{{ 'data_siswa/update' }}">
-                          {{-- <a class="btn btn-warning" href="{{ route('pendidikan.edit',$item->id) }}"> --}}
+                        {{-- <form action="" method="POST"> --}}
+                        <form action="{{ route('data_tiket.destroy', $item->id) }}" method="POST">
+                          {{-- <a class="btn btn-warning" href="{{ 'data_tiket/update' }}"> --}}
+                          <a class="btn btn-warning" href="{{ route('data_tiket.edit',$item->id) }}">
                             <i class="ri-edit-2-line"></i>
                           </a>
 
@@ -84,7 +82,7 @@
                       </div>
                     </td>
                   </tr>
-                  {{-- @endforeach --}}
+                  @endforeach
                 </tbody>
               </table>
           

@@ -16,8 +16,8 @@
       </a>
       <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-          <a href="{{ route('data_siswa.index') }}">
-            <i class="bi bi-circle"></i><span>Data Siswa</span>
+          <a href="{{ route('data_tiket.index') }}">
+            <i class="bi bi-circle"></i><span>Tambah Data TIket</span>
           </a>
         </li>
         
