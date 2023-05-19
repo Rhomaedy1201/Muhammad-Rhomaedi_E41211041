@@ -1,0 +1,48 @@
+php artisan make:migration crate_data_siswa_ke_2_table
+php artisan migrate
+php artisan make:model DataSiswa
+
+protected $table = 'pendidikan';
+protected $primaryKey = 'id';
+protected $fillable = [
+'nama',
+'tingkatan',
+'tahun_masuk',
+'tahun_keluar',
+];
+
+<!-- Controller -->
+public function index()
+{
+$pendidikan = Pendidikan::get();
+return view('backend.pendidikan.index', compact('pendidikan'));
+}
+
+public function create()
+{
+$pendidikan = null;
+return view('backend.pendidikan.create', compact('pendidikan'));
+}
+
+public function store(Request $request)
+{
+Pendidikan::create($request->all());
+return redirect()->route('pendidikan.index')->with('success', 'Data pendidikan baru berhasil disimpan');
+}
+
+public function edit(Pendidikan $pendidikan)
+{
+return view('backend.pendidikan.create', compact('pendidikan'));
+}
+
+public function update(Request $request, Pendidikan $pendidikan)
+{
+$pendidikan->update($request->all());
+return redirect()->route('pendidikan.index')->with('success', 'Pendidikan berhasil diperbarui');
+}
+
+public function destroy(Pendidikan $pendidikan)
+{
+$pendidikan->delete();
+return redirect()->route('pendidikan.index')->with('success', 'Data Pendidikan berhasil dihapus');
+}
